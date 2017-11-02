@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nisure.mapper.ysOssContentList">
+	<select id="getYsOssContentLIstByIds" resultType="com.nisure.model.YsOssContentList">  
+        SELECT keyword,identify from ys_oss_content_list where ys_oss_content_id in  
+        <foreach item="item" index="index" collection="mapList"  
+                 open="(" separator="," close=")">  
+            #{item}  
+        </foreach>  
+    </select> 
+</mapper>
